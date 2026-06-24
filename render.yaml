@@ -1,0 +1,31 @@
+services:
+  - type: web
+    name: expertflow-backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: ./backend
+    envVars:
+      - key: GEMINI_API_KEY
+        sync: false          # paste your free Gemini key here in Render dashboard
+      - key: ANTHROPIC_API_KEY
+        sync: false          # optional Claude fallback key
+      - key: GEMINI_MODEL
+        value: gemini-2.5-flash
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        value: sqlite:///./data/expertflow.db
+      - key: CHROMA_PERSIST_DIR
+        value: ./chroma_db
+      - key: DEBUG
+        value: "false"
+    disk:
+      name: expertflow-data
+      mountPath: /app/data
+      sizeGB: 1
+
+  - type: web
+    name: expertflow-frontend
+    runtime: docker
+    dockerfilePath: ./frontend/Dockerfile
+    dockerContext: ./frontend

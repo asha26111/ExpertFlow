@@ -1,0 +1,30 @@
+# Web framework
+fastapi>=0.111.0
+uvicorn[standard]>=0.30.1
+python-multipart>=0.0.9
+
+# Auth
+python-jose[cryptography]>=3.3.0
+passlib[bcrypt]>=1.7.4
+
+# Database — SQLite built-in, psycopg2 only needed for PostgreSQL
+sqlalchemy>=2.0.30
+# psycopg2-binary>=2.9.9   # Uncomment for PostgreSQL
+
+# Pydantic
+pydantic>=2.7.1
+pydantic-settings>=2.3.0
+
+# AI / RAG — Gemini API + Claude fallback
+google-genai>=2.0.0
+anthropic>=0.40.0
+sentence-transformers>=2.7.0
+chromadb>=0.5.0
+langchain>=0.2.5
+langchain-community>=0.2.5
+langchain-core>=0.2.9
+
+# Utilities
+python-dotenv>=1.0.1
+aiofiles>=23.2.1
+email-validator>=2.1.0
