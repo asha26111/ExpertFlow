@@ -18,7 +18,7 @@ export default function AuthPage({ mode = 'login' }) {
 
   // Check backend health on mount
   useEffect(() => {
-    api.get('/health', { timeout: 5000 })
+    api.get('/health', { timeout: 35000 })
       .then(() => setBackendStatus('ok'))
       .catch(() => setBackendStatus('error'))
   }, [])
@@ -228,7 +228,7 @@ export default function AuthPage({ mode = 'login' }) {
 
             <button
               type="submit"
-              disabled={loading || backendStatus === 'error'}
+              disabled={loading}
               className="btn-primary w-full flex items-center justify-center gap-2 text-base"
               style={{height:'48px'}}>
               {loading

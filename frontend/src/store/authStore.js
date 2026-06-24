@@ -5,7 +5,7 @@ import api from '../utils/api'
 function extractError(err) {
   // Network error (backend not running)
   if (!err.response) {
-    return `Cannot connect to server. Make sure the backend is running on port 8000.\n(${err.message})`
+    return `Server is waking up (Render free tier sleeps after inactivity). Please wait 30 seconds and try again.\n(${err.message})`
   }
   const data = err.response.data
   // FastAPI validation errors come as { detail: [ {loc, msg, type} ] }
