@@ -14,15 +14,11 @@ services:
       - key: SECRET_KEY
         generateValue: true
       - key: DATABASE_URL
-        value: sqlite:///./data/expertflow.db
+        sync: false          # paste your Postgres Internal Database URL here in Render dashboard
       - key: CHROMA_PERSIST_DIR
         value: ./chroma_db
       - key: DEBUG
         value: "false"
-    disk:
-      name: expertflow-data
-      mountPath: /app/data
-      sizeGB: 1
 
   - type: web
     name: expertflow-frontend
